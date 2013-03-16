@@ -9,7 +9,14 @@
       <%= stylesheet_link_tag file, :debug => false %>
     <% end %>
 
+    <% global_file = Rails.cache.read "global_file" %>
+    <% unless global_file %>
+      <% global_file = javascript_include_tag("spec") %>
+      <% Rails.cache.write("global_file", global_file) %>
+    <% end %>
+
     <%= javascript_include_tag "chai", "konacha/iframe", :debug => false %>
+    <%= global_file %>
     <%= javascript_include_tag @spec.asset_name %>
   </head>
   <body>

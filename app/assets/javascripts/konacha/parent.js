@@ -15,5 +15,20 @@ window.onload = function () {
     }
   }
 
+  // function getRoot(suite) {
+  //   if (suite.root) {
+  //     return suite;
+  //   }
+  //   return getRoot(suite.parent);
+  // }
+
+  // mocha._reporter.prototype.suiteURL = function(suite) {
+  //   return '/' + getRoot(suite).path + '?grep=' + encodeURIComponent(suite.fullTitle());
+  // }
+
+  // mocha._reporter.prototype.testURL = function(test) {
+  //   return '/' + getRoot(test).path + '?grep=' + encodeURIComponent(test.fullTitle());
+  // }
+
   mocha.run();
 };

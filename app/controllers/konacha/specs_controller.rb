@@ -7,6 +7,7 @@ module Konacha
     def parent
       @run_mode = params.fetch(:mode, Konacha.mode).to_s.inquiry
       @specs = Konacha::Spec.all(params[:path])
+      Rails.cache.delete "global_file"
     end
 
     def iframe
